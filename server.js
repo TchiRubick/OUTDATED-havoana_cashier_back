@@ -28,4 +28,4 @@ app.get("/", (req, res) => {
 	res.send("Welcome to the backend");
 });
 
-app.listen(process.env.APP_PORT);
+app.listen(process.env.PORT);
