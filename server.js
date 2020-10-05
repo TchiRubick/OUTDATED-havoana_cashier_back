@@ -7,10 +7,14 @@ const cors = require("cors");
 
 const app = express();
 
+app.use(cors({
+	origin:'http://localhost:3000',
+	credentials: true
+}));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(cors());
 
 app.post("/api/authentification", (req, res) => {
 	authentification(req, res);
@@ -28,4 +32,4 @@ app.get("/", (req, res) => {
 	res.send("Welcome to the backend");
 });
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT || process.env.APP_PORT);

@@ -34,7 +34,7 @@ exports.authentification = async (req, res) => {
 			response.code = result.data.code;
 		}
 	} catch (error) {
-		console.log(error);
+		console.log(error.message);
 		response.message =
 			"Erreur authentification, veuillez reporter à l'administrateur du site";
 	}
@@ -61,7 +61,7 @@ exports.sell = (req, res) => {
 			res.send(response);
 		})
 		.catch((error) => {
-			console.log(error);
+			console.log(error.message);
 			res.send(response);
 		});
 };
@@ -79,7 +79,7 @@ exports.produit = async (req, res) => {
 	try {
 		// @ts-ignore
 		const result = await axios(instance);
-		console.log(result)
+		
 		if (result.data.error === 0) {
 			response.value = result.data.response;
 			response.success = true;
@@ -88,7 +88,7 @@ exports.produit = async (req, res) => {
 			response.code = result.data.code;
 		}
 	} catch (error) {
-		console.log(error);
+		console.log(error.message);
 		response.message =
 			"Erreur récuperation produit, veuillez reporter à l'administrateur du site";
 	}
