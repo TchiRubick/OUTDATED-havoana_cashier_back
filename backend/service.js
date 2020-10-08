@@ -34,9 +34,8 @@ exports.authentification = async (req, res) => {
 			response.code = result.data.code;
 		}
 	} catch (error) {
-		console.log(error.message);
 		response.message =
-			"Erreur authentification, veuillez reporter à l'administrateur du site " + error.message;
+			"Erreur authentification, veuillez reporter à l'administrateur du site a propos de l'API" + error.message;
 	}
 
 	res.send(response);
