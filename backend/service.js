@@ -67,6 +67,7 @@ exports.sell = (req, res) => {
 
 exports.produit = async (req, res) => {
 	let response = { success: false, message: "", value: [], code: "0000" };
+	console.log(req)
 	let token = req.cookies.Token;
 
 	let instance = {
