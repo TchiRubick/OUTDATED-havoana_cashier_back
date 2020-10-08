@@ -8,9 +8,8 @@ const cors = require("cors");
 const app = express();
 
 app.use(cors({
-	origin: process.env.FRONT_CORS,
 	credentials: true,
-	exposedHeaders: ["set-cookie"]
+	origin: process.env.FRONT_CORS
 }));
 
   
