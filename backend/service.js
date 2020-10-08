@@ -36,7 +36,7 @@ exports.authentification = async (req, res) => {
 	} catch (error) {
 		console.log(error.message);
 		response.message =
-			"Erreur authentification, veuillez reporter à l'administrateur du site";
+			"Erreur authentification, veuillez reporter à l'administrateur du site " + error.message;
 	}
 
 	res.send(response);
