@@ -43,7 +43,7 @@ exports.authentification = async (req, res) => {
 
 exports.sell = (req, res) => {
 	let response = { success: false, message: "", value: null, code: "0000" };
-	let token = req.cookies.Token;
+	let token = req.body.Token;
 
 	let instance = {
 		method: "POST",
@@ -55,12 +55,12 @@ exports.sell = (req, res) => {
 	// @ts-ignore
 	axios(instance)
 		.then((result) => {
-			console.log(result);
 			response.success = true;
+			response.message = result.data.response;
 			res.send(response);
 		})
 		.catch((error) => {
-			console.log(error.message);
+			response.message = error.message;
 			res.send(response);
 		});
 };
@@ -68,7 +68,7 @@ exports.sell = (req, res) => {
 exports.produit = async (req, res) => {
 	let response = { success: false, message: "", value: [], code: "0000" };
 	console.log(req)
-	let token = req.cookies.Token;
+	let token = req.body.Token;
 
 	let instance = {
 		method: "POST",
